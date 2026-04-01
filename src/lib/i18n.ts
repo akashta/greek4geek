@@ -3,7 +3,7 @@ import type { NativeLanguage } from '../types';
 type Dictionary = Record<string, string>;
 
 const en: Dictionary = {
-  title: 'Greek words trainer',
+  title: 'Kalimera',
   subtitle: 'Choose your level and language, then start a short lesson.',
   statsTitle: 'Statistics',
   statsSubtitle: 'Track progress for each level separately.',
@@ -51,7 +51,7 @@ const en: Dictionary = {
 };
 
 const ru: Dictionary = {
-  title: 'Тренажер греческих слов',
+  title: 'Калимера',
   subtitle: 'Выберите уровень и язык, а затем начните короткий урок.',
   statsTitle: 'Статистика',
   statsSubtitle: 'Отслеживайте прогресс по каждому уровню отдельно.',

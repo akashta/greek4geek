@@ -29,7 +29,6 @@ function Stats({
       <section className={`${ui.panel} ${ui.introPanel}`}>
         <p className={ui.kicker}>{t(uiLanguage, 'levelProgress')}</p>
         <h1>{t(uiLanguage, 'statsTitle')}</h1>
-        <p className={ui.subtitle}>{t(uiLanguage, 'statsSubtitle')}</p>
       </section>
 
       <section className={`${ui.panel} ${styles.heroPanel}`}>

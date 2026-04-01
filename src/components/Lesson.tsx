@@ -18,6 +18,21 @@ type LessonProps = {
   onMarkKnown: () => void;
 };
 
+function BackIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.backIcon}>
+      <path
+        d="M14.5 5.5 8 12l6.5 6.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function Lesson({
   uiLanguage,
   activeLesson,
@@ -36,36 +51,40 @@ function Lesson({
   return (
     <section className={`${ui.panel} ${styles.lessonPanel} ${styles.lessonScreen}`}>
       <div className={styles.lessonHeader}>
-        <button type="button" className={`${ui.ghostButton} ${ui.compactButton}`} onClick={onBack}>
-          {t(uiLanguage, 'backToDashboard')}
+        <button
+          type="button"
+          className={styles.backButton}
+          aria-label={t(uiLanguage, 'backToDashboard')}
+          onClick={onBack}
+        >
+          <BackIcon />
         </button>
-        <span>
+        <div className={styles.progressTrack}>
+          <span className={styles.progressFill} style={{ width: `${((questionIndex + 1) / activeLesson.questions.length) * 100}%` }} />
+        </div>
+        <span className={styles.progressText}>
           {questionIndex + 1} / {activeLesson.questions.length}
         </span>
       </div>
-
-      <div className={styles.progressTrack}>
-        <span className={styles.progressFill} style={{ width: `${((questionIndex + 1) / activeLesson.questions.length) * 100}%` }} />
+      <div className={styles.promptCard}>
+        <div className={styles.promptCardTop}>
+          <span className={question.isReview ? `${styles.badge} ${styles.reviewBadge}` : `${styles.badge} ${styles.freshBadge}`}>
+            {question.isReview ? t(uiLanguage, 'reviewHint') : t(uiLanguage, 'newHint')}
+          </span>
+          {showAudioButton && (
+            <button
+              type="button"
+              className={styles.audioButton}
+              aria-label={t(uiLanguage, 'audio')}
+              onClick={() => speakGreek(question.prompt)}
+            >
+              <SpeakerIcon className={styles.speakerIcon} />
+            </button>
+          )}
+        </div>
+        <div className={styles.promptText}>{question.prompt}</div>
       </div>
-
-      <div className={styles.badgeRow}>
-        <span className={question.isReview ? `${styles.badge} ${styles.reviewBadge}` : `${styles.badge} ${styles.freshBadge}`}>
-          {question.isReview ? t(uiLanguage, 'reviewHint') : t(uiLanguage, 'newHint')}
-        </span>
-        {showAudioButton && (
-          <button
-            type="button"
-            className={styles.audioButton}
-            aria-label={t(uiLanguage, 'audio')}
-            onClick={() => speakGreek(question.prompt)}
-          >
-            <SpeakerIcon className={styles.speakerIcon} />
-          </button>
-        )}
-      </div>
-
       <p className={styles.promptLabel}>{currentPromptLabel}</p>
-      <div className={styles.promptCard}>{question.prompt}</div>
 
       <div className={styles.choiceGrid}>
         {question.choices.map((choice) => {

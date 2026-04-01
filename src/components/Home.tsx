@@ -39,7 +39,6 @@ function Home({
     <>
       <section className={`${ui.panel} ${ui.introPanel}`}>
         <h1>{t(uiLanguage, 'title')}</h1>
-        <p className={ui.subtitle}>{t(uiLanguage, 'subtitle')}</p>
       </section>
 
       <section className={`${ui.panel} ${styles.settingsPanel}`}>
@@ -72,7 +71,6 @@ function Home({
 
         <section className={styles.levelProgressCard} aria-label={t(uiLanguage, 'levelProgress')}>
           <div className={styles.progressCopy}>
-            <strong className={styles.progressTitle}>{t(uiLanguage, 'levelProgress')}</strong>
             <span className={styles.progressMeta}>
               {learnedWords} / {totalWords} {t(uiLanguage, 'learnedWords').toLowerCase()}
             </span>
