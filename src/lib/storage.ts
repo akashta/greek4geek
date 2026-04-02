@@ -1,6 +1,6 @@
 import type { LevelStats, UserProgress, UserSettings, WordProgress } from '../types';
 import { createDefaultProgress, mergeProgress } from './progress';
-import { supportsTelegramCloudStorage } from './telegram';
+import { supportsTelegramDeviceStorage } from './telegram';
 
 export interface AppStorage {
   loadProgress(): Promise<UserProgress>;
@@ -8,6 +8,24 @@ export interface AppStorage {
 }
 
 const STORAGE_PREFIX = 'greek-trainer';
+
+function hasStoredProgress(progress: UserProgress): boolean {
+  if (progress.settings.hasCompletedOnboarding) {
+    return true;
+  }
+
+  if (Object.keys(progress.words).length > 0) {
+    return true;
+  }
+
+  return Object.values(progress.levels).some(
+    (level) =>
+      level.completedLessons > 0 ||
+      level.totalCorrect > 0 ||
+      level.totalWrong > 0 ||
+      Boolean(level.lastStudiedAt),
+  );
+}
 
 class LocalStorageAdapter implements AppStorage {
   async loadProgress(): Promise<UserProgress> {
@@ -28,7 +46,7 @@ class LocalStorageAdapter implements AppStorage {
   }
 }
 
-class TelegramCloudStorageAdapter implements AppStorage {
+class TelegramDeviceStorageAdapter implements AppStorage {
   async loadProgress(): Promise<UserProgress> {
     const settings = await this.getItem<UserSettings>('settings');
     const [words, statsA2, statsB1] = await Promise.all([
@@ -57,14 +75,14 @@ class TelegramCloudStorageAdapter implements AppStorage {
   }
 
   private async getItem<T>(key: string): Promise<T | null> {
-    const cloudStorage = window.Telegram?.WebApp?.CloudStorage;
-    if (!cloudStorage) {
+    const deviceStorage = window.Telegram?.WebApp?.DeviceStorage;
+    if (!deviceStorage) {
       return null;
     }
 
     try {
       return await new Promise((resolve) => {
-        cloudStorage.getItem(`${STORAGE_PREFIX}:${key}`, (error, value) => {
+        deviceStorage.getItem(`${STORAGE_PREFIX}:${key}`, (error, value) => {
           if (error || !value) {
             resolve(null);
             return;
@@ -83,14 +101,14 @@ class TelegramCloudStorageAdapter implements AppStorage {
   }
 
   private async setItem(key: string, value: unknown): Promise<void> {
-    const cloudStorage = window.Telegram?.WebApp?.CloudStorage;
-    if (!cloudStorage) {
+    const deviceStorage = window.Telegram?.WebApp?.DeviceStorage;
+    if (!deviceStorage) {
       return;
     }
 
     try {
       await new Promise<void>((resolve) => {
-        cloudStorage.setItem(`${STORAGE_PREFIX}:${key}`, JSON.stringify(value), () => resolve());
+        deviceStorage.setItem(`${STORAGE_PREFIX}:${key}`, JSON.stringify(value), () => resolve());
       });
     } catch {
       return;
@@ -98,6 +116,33 @@ class TelegramCloudStorageAdapter implements AppStorage {
   }
 }
 
+class SmartStorageAdapter implements AppStorage {
+  private readonly localStorageAdapter = new LocalStorageAdapter();
+
+  private readonly telegramStorageAdapter = new TelegramDeviceStorageAdapter();
+
+  async loadProgress(): Promise<UserProgress> {
+    const localProgress = await this.localStorageAdapter.loadProgress();
+
+    if (!supportsTelegramDeviceStorage()) {
+      return localProgress;
+    }
+
+    const telegramProgress = await this.telegramStorageAdapter.loadProgress();
+    return hasStoredProgress(telegramProgress) ? telegramProgress : localProgress;
+  }
+
+  async saveProgress(progress: UserProgress): Promise<void> {
+    await this.localStorageAdapter.saveProgress(progress);
+
+    if (!supportsTelegramDeviceStorage()) {
+      return;
+    }
+
+    await this.telegramStorageAdapter.saveProgress(progress);
+  }
+}
+
 export function getStorageAdapter(): AppStorage {
-  return supportsTelegramCloudStorage() ? new TelegramCloudStorageAdapter() : new LocalStorageAdapter();
+  return new SmartStorageAdapter();
 }

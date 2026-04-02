@@ -8,7 +8,7 @@ type TelegramThemeParams = {
   secondary_bg_color?: string;
 };
 
-type TelegramCloudStorage = {
+type TelegramDeviceStorage = {
   getItem: (key: string, callback: (error: Error | null, value: string | null) => void) => void;
   setItem: (key: string, value: string, callback?: (error: Error | null, success: boolean) => void) => void;
 };
@@ -44,7 +44,7 @@ export type TelegramWebApp = {
     start_param?: string;
   };
   BackButton?: TelegramBackButton;
-  CloudStorage?: TelegramCloudStorage;
+  DeviceStorage?: TelegramDeviceStorage;
 };
 
 declare global {
@@ -103,13 +103,13 @@ export function isTelegramMiniApp(): boolean {
   return Boolean(webApp?.initData);
 }
 
-export function supportsTelegramCloudStorage(): boolean {
+export function supportsTelegramDeviceStorage(): boolean {
   const webApp = getTelegramWebApp();
-  if (!webApp?.CloudStorage || !isTelegramMiniApp()) {
+  if (!webApp?.DeviceStorage || !isTelegramMiniApp()) {
     return false;
   }
 
-  return webApp.isVersionAtLeast ? webApp.isVersionAtLeast('6.9') : true;
+  return webApp.isVersionAtLeast ? webApp.isVersionAtLeast('9.0') : true;
 }
 
 export function initTelegramWebApp(): void {
