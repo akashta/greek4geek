@@ -1,7 +1,9 @@
 .resultsPanel {
+  position: relative;
   display: grid;
   gap: 16px;
   align-content: start;
+  overflow: hidden;
 }
 
 .resultsScreen {
@@ -64,4 +66,42 @@
   background: #f7f2e3;
   border-radius: 14px;
   padding: 14px 16px;
+}
+
+.confettiLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confettiPiece {
+  position: absolute;
+  top: -12%;
+  left: var(--confetti-left);
+  width: 0.52rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: var(--confetti-color);
+  opacity: 0;
+  transform: translate3d(0, 0, 0) rotate(var(--confetti-rotation));
+  animation: confettiFall var(--confetti-duration) ease-in forwards;
+  animation-delay: var(--confetti-delay);
+  box-shadow: 0 0 0 1px rgba(17, 32, 25, 0.04);
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0) rotate(var(--confetti-rotation));
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(18px, 118vh, 0) rotate(calc(var(--confetti-rotation) + 280deg));
+  }
 }
