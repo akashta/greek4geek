@@ -28,6 +28,11 @@ export type LessonGroupId =
   | 'feelings'
   | 'leisure'
   | 'society'
+  | 'geography'
+  | 'professions'
+  | 'travel'
+  | 'shopping'
+  | 'holidays'
   | 'general';
 
 export type WordGroupId = Exclude<LessonGroupId, 'all'>;

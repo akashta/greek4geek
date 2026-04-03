@@ -36,6 +36,11 @@ export const WORD_GROUPS: WordGroupId[] = [
   'feelings',
   'leisure',
   'society',
+  'geography',
+  'professions',
+  'travel',
+  'shopping',
+  'holidays',
   'general',
 ];
 
@@ -66,6 +71,11 @@ const GROUP_LABEL_KEYS: Record<LessonGroupId, TranslationKey> = {
   feelings: 'groupFeelings',
   leisure: 'groupLeisure',
   society: 'groupSociety',
+  geography: 'groupGeography',
+  professions: 'groupProfessions',
+  travel: 'groupTravel',
+  shopping: 'groupShopping',
+  holidays: 'groupHolidays',
   general: 'groupGeneral',
 };
 

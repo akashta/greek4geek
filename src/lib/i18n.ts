@@ -84,6 +84,11 @@ export const en = {
   groupFeelings: 'Feelings',
   groupLeisure: 'Leisure',
   groupSociety: 'Society',
+  groupGeography: 'Geography',
+  groupProfessions: 'Professions',
+  groupTravel: 'Travel',
+  groupShopping: 'Shopping',
+  groupHolidays: 'Holidays',
   groupGeneral: 'General',
 } as const satisfies Dictionary;
 
@@ -169,6 +174,11 @@ export const ru = {
   groupFeelings: 'Чувства',
   groupLeisure: 'Досуг',
   groupSociety: 'Общество',
+  groupGeography: 'География',
+  groupProfessions: 'Профессии',
+  groupTravel: 'Путешествия',
+  groupShopping: 'Покупки',
+  groupHolidays: 'Праздники',
   groupGeneral: 'Общее',
 } as const satisfies Dictionary;
 
