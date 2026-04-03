@@ -12,6 +12,8 @@ type GreekAudioManifest = {
   byGreek: Record<string, string>;
 };
 
+const DEFAULT_MP3_VOICE = 'charon';
+
 let currentGreekAudio: HTMLAudioElement | null = null;
 let greekAudioManifestPromise: Promise<GreekAudioManifest | null> | null = null;
 let currentGreekUtterance: SpeechSynthesisUtterance | null = null;
@@ -28,7 +30,7 @@ async function loadGreekAudioManifest(): Promise<GreekAudioManifest | null> {
   }
 
   if (!greekAudioManifestPromise) {
-    greekAudioManifestPromise = fetch(getAppAssetUrl('audio/manifest.json'))
+    greekAudioManifestPromise = fetch(getAppAssetUrl(`audio/${DEFAULT_MP3_VOICE}/manifest.json`))
       .then(async (response) => {
         if (!response.ok) {
           return null;
