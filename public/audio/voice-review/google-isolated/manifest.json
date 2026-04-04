@@ -1,0 +1,19 @@
+{
+  "samples": [
+    {
+      "slug": "anthropos",
+      "text": "άνθρωπος",
+      "manifest": "anthropos/manifest.json"
+    },
+    {
+      "slug": "peripou",
+      "text": "περίπου",
+      "manifest": "peripou/manifest.json"
+    },
+    {
+      "slug": "glossa",
+      "text": "γλώσσα",
+      "manifest": "glossa/manifest.json"
+    }
+  ]
+}

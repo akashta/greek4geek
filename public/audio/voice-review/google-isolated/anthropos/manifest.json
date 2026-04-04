@@ -1,0 +1,25 @@
+{
+  "text": "άνθρωπος",
+  "variants": [
+    {
+      "file": "standard-b.mp3",
+      "voice": "el-GR-Standard-B",
+      "mode": "text"
+    },
+    {
+      "file": "wavenet-b.mp3",
+      "voice": "el-GR-Wavenet-B",
+      "mode": "text"
+    },
+    {
+      "file": "standard-b-phoneme.mp3",
+      "voice": "el-GR-Standard-B",
+      "mode": "phoneme"
+    },
+    {
+      "file": "wavenet-b-phoneme.mp3",
+      "voice": "el-GR-Wavenet-B",
+      "mode": "phoneme"
+    }
+  ]
+}
