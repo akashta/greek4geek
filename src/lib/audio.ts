@@ -12,7 +12,7 @@ type GreekAudioManifest = {
   byGreek: Record<string, string>;
 };
 
-const DEFAULT_MP3_VOICE: Mp3Voice = 'aoede';
+const DEFAULT_MP3_VOICE: Mp3Voice = 'standard-b';
 
 let currentGreekAudio: HTMLAudioElement | null = null;
 const greekAudioManifestPromises = new Map<Mp3Voice, Promise<GreekAudioManifest | null>>();

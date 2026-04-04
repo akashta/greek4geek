@@ -51,7 +51,7 @@ export function createDefaultProgress(): UserProgress {
       hasCompletedOnboarding: false,
       autoPlayAudio: true,
       audioMode: 'mp3',
-      audioVoice: 'aoede',
+      audioVoice: 'standard-b',
     },
     words: {},
     levels: {
