@@ -79,8 +79,8 @@
 }
 
 .freshBadge {
-  background: #faefd3;
-  color: #92571b;
+  background: #d8efe1;
+  color: #145942;
 }
 
 .audioButton {
@@ -211,10 +211,31 @@
 
 .lessonFooter {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: flex-end;
   position: absolute;
   left: 18px;
+  right: 18px;
   bottom: 18px;
+}
+
+.languageSwitchButton {
+  justify-content: center;
+  text-transform: lowercase;
+  background: #dcecff;
+  color: #225ea8;
+}
+
+.languageSwitchOption {
+  font-weight: 600;
+}
+
+.languageSwitchCurrent {
+  font-weight: 700;
+}
+
+.languageSwitchDivider {
+  font-weight: 600;
 }
 
 .dangerButton {

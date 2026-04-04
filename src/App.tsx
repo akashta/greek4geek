@@ -11,7 +11,7 @@ import styles from './App.module.css';
 import { playCorrectSound, playLessonFinishedSound, playWrongSound, speakGreek } from './lib/audio';
 import { buildLessonGroupSummaries, getWordsForGroup } from './lib/groups';
 import { t } from './lib/i18n';
-import { buildLessonSession, buildReviewSession } from './lib/lesson';
+import { buildLessonSession, buildReviewSession, remapLessonSession } from './lib/lesson';
 import { applyLessonAnswers, createDefaultProgress, getMasteredWordCount, getWeakWordIds } from './lib/progress';
 import { getStorageAdapter } from './lib/storage';
 import { hasCompleteNativeTranslations, wordsByLevel } from './lib/words';
@@ -353,6 +353,22 @@ function App() {
     setScreen('home');
   }
 
+  function remapAnswer(answer: LessonAnswer, nextQuestion: LessonSession['questions'][number]): LessonAnswer {
+    if (!answer.selectedAnswer) {
+      return {
+        ...answer,
+        question: nextQuestion,
+      };
+    }
+
+    const selectedIndex = answer.question.choices.indexOf(answer.selectedAnswer);
+    return {
+      ...answer,
+      question: nextQuestion,
+      selectedAnswer: selectedIndex >= 0 ? nextQuestion.choices[selectedIndex] : undefined,
+    };
+  }
+
   const correctAnswers = answers.filter((answer) => answer.outcome === 'correct').length;
   const scoredAnswers = answers.filter((answer) => answer.outcome !== 'know_it').length;
   const weakWords = getWeakWordIds(progress.words, currentWords).length;
@@ -441,6 +457,32 @@ function App() {
           onMarkKnown={markKnown}
           hasReportedIssue={reportedQuestionKey === getQuestionReportKey(question)}
           onReportIssue={reportCurrentWord}
+          onChangeUiLanguage={(language) => {
+            if (!activeLesson || language === uiLanguage) {
+              void updateSettings({ nativeLanguage: language });
+              return;
+            }
+
+            const lessonWords = getWordsForGroup(wordsByLevel[activeLesson.level], activeLesson.groupId);
+            const nextLesson = remapLessonSession(activeLesson, lessonWords, language);
+            if (!nextLesson) {
+              return;
+            }
+
+            const currentQuestion = activeLesson.questions[questionIndex];
+            const nextQuestion = nextLesson.questions[questionIndex];
+            setActiveLesson(nextLesson);
+            setAnswers((currentAnswers) =>
+              currentAnswers.map((answer, index) => remapAnswer(answer, nextLesson.questions[index])),
+            );
+            setCurrentResponse((currentAnswer) =>
+              currentAnswer && nextQuestion ? remapAnswer(currentAnswer, nextQuestion) : currentAnswer,
+            );
+            if (currentQuestion && nextQuestion && reportedQuestionKey === getQuestionReportKey(currentQuestion)) {
+              setReportedQuestionKey(getQuestionReportKey(nextQuestion));
+            }
+            void updateSettings({ nativeLanguage: language });
+          }}
         />
       )}
       {!needsOnboarding && screen === 'results' && (

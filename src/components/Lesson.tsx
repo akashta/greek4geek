@@ -21,6 +21,7 @@ type LessonProps = {
   onMarkKnown: () => void;
   hasReportedIssue: boolean;
   onReportIssue: () => void;
+  onChangeUiLanguage: (language: NativeLanguage) => void;
 };
 
 function BackIcon() {
@@ -91,11 +92,16 @@ function Lesson({
   onMarkKnown,
   hasReportedIssue,
   onReportIssue,
+  onChangeUiLanguage,
 }: LessonProps) {
   const showAudioButton = question.promptLanguage === 'el';
   const selectedChoice = currentResponse?.selectedAnswer ?? null;
   const reportIssueLabel = uiLanguage === 'ru' ? '\u0421\u043e\u043e\u0431\u0449\u0438\u0442\u044c \u043e\u0431 \u043e\u0448\u0438\u0431\u043a\u0435' : 'Report issue';
   const reportedIssueLabel = uiLanguage === 'ru' ? '\u041e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u043e' : 'Reported';
+  const languageSwitchLabel =
+    uiLanguage === 'ru'
+      ? 'Switch language to English'
+      : '\u041f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u044f\u0437\u044b\u043a \u043d\u0430 \u0440\u0443\u0441\u0441\u043a\u0438\u0439';
   const [isReportSent, setIsReportSent] = useState(hasReportedIssue);
 
   useEffect(() => {
@@ -198,6 +204,16 @@ function Lesson({
         >
           <ReportIcon sent={isReportSent} />
           <span className={styles.reportButtonLabel}>{isReportSent ? reportedIssueLabel : reportIssueLabel}</span>
+        </button>
+        <button
+          type="button"
+          className={`${styles.reportButton} ${styles.languageSwitchButton}`}
+          onClick={() => onChangeUiLanguage(uiLanguage === 'ru' ? 'en' : 'ru')}
+          aria-label={languageSwitchLabel}
+        >
+          <span className={uiLanguage === 'ru' ? styles.languageSwitchCurrent : styles.languageSwitchOption}>ru</span>
+          <span className={styles.languageSwitchDivider}>/</span>
+          <span className={uiLanguage === 'en' ? styles.languageSwitchCurrent : styles.languageSwitchOption}>en</span>
         </button>
       </div>
     </section>

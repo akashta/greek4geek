@@ -168,6 +168,81 @@ function buildQuestionsForWords(
   return [...greekToNative, ...nativeToGreek];
 }
 
+function inferChoiceWordIds(question: LessonQuestion, pool: Word[], correctWordId: string): string[] | null {
+  const usedWordIds = new Set<string>();
+  const choiceWordIds: string[] = [];
+
+  for (const choice of question.choices) {
+    if (choice === question.correctAnswer && !usedWordIds.has(correctWordId)) {
+      usedWordIds.add(correctWordId);
+      choiceWordIds.push(correctWordId);
+      continue;
+    }
+
+    const matchingWord = pool.find((candidate) => {
+      if (usedWordIds.has(candidate.id)) {
+        return false;
+      }
+
+      return getWordLabel(candidate, question.answerLanguage) === choice;
+    });
+
+    if (!matchingWord) {
+      return null;
+    }
+
+    usedWordIds.add(matchingWord.id);
+    choiceWordIds.push(matchingWord.id);
+  }
+
+  return choiceWordIds;
+}
+
+function remapQuestion(
+  question: LessonQuestion,
+  pool: Word[],
+  nativeLanguage: NativeLanguage,
+): LessonQuestion | null {
+  const targetWord = pool.find((word) => word.id === question.wordId);
+  if (!targetWord) {
+    return null;
+  }
+
+  const choiceWordIds = inferChoiceWordIds(question, pool, targetWord.id);
+  if (!choiceWordIds) {
+    return null;
+  }
+
+  const promptLanguage: LanguageCode = question.promptLanguage === 'el' ? 'el' : nativeLanguage;
+  const answerLanguage: LanguageCode = promptLanguage === 'el' ? nativeLanguage : 'el';
+  const prompt = getWordLabel(targetWord, promptLanguage);
+  const correctAnswer = getWordLabel(targetWord, answerLanguage);
+
+  if (!prompt || !correctAnswer) {
+    return null;
+  }
+
+  const choices = choiceWordIds
+    .map((wordId) => {
+      const choiceWord = pool.find((word) => word.id === wordId);
+      return choiceWord ? getWordLabel(choiceWord, answerLanguage) : undefined;
+    })
+    .filter((choice): choice is string => Boolean(choice));
+
+  if (choices.length !== choiceWordIds.length) {
+    return null;
+  }
+
+  return {
+    ...question,
+    prompt,
+    promptLanguage,
+    answerLanguage,
+    correctAnswer,
+    choices,
+  };
+}
+
 export function buildLessonSession(
   words: Word[],
   progress: UserProgress,
@@ -204,5 +279,24 @@ export function buildReviewSession(
     nativeLanguage,
     groupId,
     questions,
+  };
+}
+
+export function remapLessonSession(
+  session: LessonSession,
+  pool: Word[],
+  nativeLanguage: NativeLanguage,
+): LessonSession | null {
+  const questions = session.questions
+    .map((question) => remapQuestion(question, pool, nativeLanguage));
+
+  if (questions.some((question) => !question)) {
+    return null;
+  }
+
+  return {
+    ...session,
+    nativeLanguage,
+    questions: questions as LessonQuestion[],
   };
 }
