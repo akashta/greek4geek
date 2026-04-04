@@ -362,10 +362,12 @@ function App() {
     }
 
     const selectedIndex = answer.question.choices.indexOf(answer.selectedAnswer);
+    const selectedWordId = selectedIndex >= 0 ? answer.question.choiceWordIds[selectedIndex] : undefined;
+    const nextSelectedIndex = selectedWordId ? nextQuestion.choiceWordIds.indexOf(selectedWordId) : -1;
     return {
       ...answer,
       question: nextQuestion,
-      selectedAnswer: selectedIndex >= 0 ? nextQuestion.choices[selectedIndex] : undefined,
+      selectedAnswer: nextSelectedIndex >= 0 ? nextQuestion.choices[nextSelectedIndex] : undefined,
     };
   }
 

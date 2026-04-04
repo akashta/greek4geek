@@ -90,6 +90,7 @@ export interface LessonQuestion {
   answerLanguage: LanguageCode;
   correctAnswer: string;
   choices: string[];
+  choiceWordIds: string[];
   isReview: boolean;
 }
 

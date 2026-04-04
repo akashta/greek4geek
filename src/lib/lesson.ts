@@ -71,6 +71,7 @@ function createQuestion(
   promptLanguage: LanguageCode,
   nativeLanguage: NativeLanguage,
   isReview: boolean,
+  preferredChoiceWordIds: string[] = [],
 ): LessonQuestion | null {
   if (nativeLanguage === 'ru' && !word.russian) {
     return null;
@@ -85,24 +86,60 @@ function createQuestion(
   }
 
   const requireUppercase = startsWithUppercase(correctAnswer);
+  const maxDistractors = Math.min(3, Math.max(1, pool.length - 1));
+  const usedLabels = new Set<string>([correctAnswer]);
+  const usedWordIds = new Set<string>([word.id]);
+  const distractors: { wordId: string; label: string }[] = [];
 
-  const distractors = shuffle(
-    pool.filter((candidate) => {
+  const tryAddDistractor = (candidate: Word) => {
+    if (usedWordIds.has(candidate.id)) {
+      return;
+    }
+
+    const label = getWordLabel(candidate, answerLanguage);
+    if (!label || usedLabels.has(label) || startsWithUppercase(label) !== requireUppercase) {
+      return;
+    }
+
+    usedWordIds.add(candidate.id);
+    usedLabels.add(label);
+    distractors.push({ wordId: candidate.id, label });
+  };
+
+  for (const preferredWordId of preferredChoiceWordIds) {
+    if (preferredWordId === word.id) {
+      continue;
+    }
+
+    const preferredWord = pool.find((candidate) => candidate.id === preferredWordId);
+    if (!preferredWord) {
+      continue;
+    }
+
+    tryAddDistractor(preferredWord);
+    if (distractors.length >= maxDistractors) {
+      break;
+    }
+  }
+
+  if (distractors.length < maxDistractors) {
+    for (const candidate of shuffle(pool)) {
       if (candidate.id === word.id) {
-        return false;
+        continue;
       }
 
-      const label = getWordLabel(candidate, answerLanguage);
-      return Boolean(label && label !== correctAnswer && startsWithUppercase(label) === requireUppercase);
-    }),
-  )
-    .map((candidate) => getWordLabel(candidate, answerLanguage))
-    .filter((label): label is string => Boolean(label))
-    .slice(0, Math.min(3, Math.max(1, pool.length - 1)));
+      tryAddDistractor(candidate);
+      if (distractors.length >= maxDistractors) {
+        break;
+      }
+    }
+  }
 
   if (distractors.length === 0) {
     return null;
   }
+
+  const choiceEntries = shuffle([{ wordId: word.id, label: correctAnswer }, ...distractors]);
 
   return {
     wordId: word.id,
@@ -110,7 +147,8 @@ function createQuestion(
     promptLanguage,
     answerLanguage,
     correctAnswer,
-    choices: shuffle([correctAnswer, ...distractors]),
+    choices: choiceEntries.map((entry) => entry.label),
+    choiceWordIds: choiceEntries.map((entry) => entry.wordId),
     isReview,
   };
 }
@@ -208,39 +246,20 @@ function remapQuestion(
     return null;
   }
 
-  const choiceWordIds = inferChoiceWordIds(question, pool, targetWord.id);
-  if (!choiceWordIds) {
-    return null;
-  }
-
   const promptLanguage: LanguageCode = question.promptLanguage === 'el' ? 'el' : nativeLanguage;
-  const answerLanguage: LanguageCode = promptLanguage === 'el' ? nativeLanguage : 'el';
-  const prompt = getWordLabel(targetWord, promptLanguage);
-  const correctAnswer = getWordLabel(targetWord, answerLanguage);
+  const preferredChoiceWordIds =
+    question.choiceWordIds.length > 0
+      ? question.choiceWordIds
+      : inferChoiceWordIds(question, pool, targetWord.id) ?? [];
 
-  if (!prompt || !correctAnswer) {
-    return null;
-  }
-
-  const choices = choiceWordIds
-    .map((wordId) => {
-      const choiceWord = pool.find((word) => word.id === wordId);
-      return choiceWord ? getWordLabel(choiceWord, answerLanguage) : undefined;
-    })
-    .filter((choice): choice is string => Boolean(choice));
-
-  if (choices.length !== choiceWordIds.length) {
-    return null;
-  }
-
-  return {
-    ...question,
-    prompt,
+  return createQuestion(
+    targetWord,
+    pool,
     promptLanguage,
-    answerLanguage,
-    correctAnswer,
-    choices,
-  };
+    nativeLanguage,
+    question.isReview,
+    preferredChoiceWordIds,
+  );
 }
 
 export function buildLessonSession(
