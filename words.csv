@@ -15,7 +15,7 @@ id,greek,english,russian,level,group
 14,αγκινάρα,artichoke,артишок,A2,food
 15,αγκίστρι,hook,крюк,A2,home
 16,άγκυρα,anchor,якорь,A2,objects
-17,άγνωστος,"unknown, stranger","неизвестный, незнакомец",A2,basics
+17,άγνωστος,"unknown, stranger","неизвестный, незнакомец",A2,descriptions
 18,αγορά,"market, marketplace",рынок,A2,clothes
 19,αγοράζω,to buy,покупать,A2,verbs
 20,αγόρι,boy,мальчик,A2,people
@@ -144,7 +144,7 @@ id,greek,english,russian,level,group
 143,αργά,late,поздно,A2,objects
 144,αργώ,to be late,опаздывать,A2,verbs
 145,αρέσει,to like,нравиться,A2,verbs
-146,άρθρο,article,статья,A2,basics
+146,άρθρο,article,статья,A2,communication
 147,αριθμός,number,номер,A2,time
 148,αριστερά,on the left,слева,A2,space
 149,αριστερός,left,левый,A2,space
@@ -236,7 +236,7 @@ id,greek,english,russian,level,group
 235,βήχας,cough,кашель,A2,health
 236,βήχω,to cough,кашлять,A2,verbs
 237,βιβλίο,book,книга,A2,school
-238,βιβλιάριο,booklet,буклет,A2,basics
+238,βιβλιάριο,booklet,буклет,A2,communication
 239,βιβλιοθήκη,library,библиотека,A2,school
 240,Βιέννη,Vienna,Вена,A2,countries
 241,βιολί,violin,скрипка,A2,music
@@ -315,15 +315,15 @@ id,greek,english,russian,level,group
 314,γλώσσα μητρική,mother tongue,родной язык,A2,people
 315,γνώμη,opinion,мнение,A2,concepts
 316,γνωρίζω,to know,знать,A2,verbs
-317,γνώση,knowledge,знание,A2,basics
-318,γνωστός,known,известный,A2,basics
+317,γνώση,knowledge,знание,A2,concepts
+318,γνωστός,known,известный,A2,descriptions
 319,γονείς,parents,родители,A2,objects
 320,γουρούνι,pig,свинья,A2,animals
 321,γραβάτα,tie,галстук,A2,objects
 322,γράμμα,"letter, character","буква, письмо",A2,communication
 323,γραμματέας,secretary,секретарь,A2,professions
 324,γραμματική,grammar,грамматика,A2,school
-325,γραμματοκιβώτιο,"mailbox, letterbox",почтовый ящик,A2,basics
+325,γραμματοκιβώτιο,"mailbox, letterbox",почтовый ящик,A2,communication
 326,γραμματόσημο,stamp,"марка, почтовая марка",A2,communication
 327,γραμμή,line,линия,A2,space
 328,γραπτός,written,написанный,A2,objects
@@ -403,7 +403,7 @@ id,greek,english,russian,level,group
 402,διεθνής,international,международный,A2,society
 403,διεύθυνση,address,адрес,A2,clothes
 404,διευθυντής,"manager, director","менеджер, директор",A2,professions
-405,δίκαιος,"just, fair","справедливый, честный",A2,basics
+405,δίκαιος,"just, fair","справедливый, честный",A2,descriptions
 406,δικηγόρος,lawyer,адвокат,A2,professions
 407,δίκλινο,double room,двухместный номер,A2,home
 408,δίνω,to give,давать,A2,verbs
@@ -591,7 +591,7 @@ id,greek,english,russian,level,group
 590,και,and,и,A2,basics
 591,καινούριος,new,новый,A2,descriptions
 592,καιρός,weather,погода,A2,weather
-593,τι καιρό κάνει;,what's the weather like?,какая погода?,A2,basics
+593,τι καιρό κάνει;,what's the weather like?,какая погода?,A2,weather
 594,κακός,bad,плохой,A2,feelings
 595,καλημέρα,goodmorning,доброе утро,A2,time
 596,καληνύχτα,goodnight,доброй ночи,A2,time
@@ -699,7 +699,7 @@ id,greek,english,russian,level,group
 698,κρεοπωλείο,the butcher's,"мясная лавка, мясной магазин",A2,professions
 699,κρεοπώλης,butcher,мясник,A2,professions
 700,Κρήτη,Crete,Крит,A2,geography
-701,κρίμα!,What a pity!,Какая жалость!,A2,basics
+701,κρίμα!,What a pity!,Какая жалость!,A2,feelings
 702,κρίνω,to judge,судить,A2,verbs
 703,Κροατία,Croatia,Хорватия,A2,countries
 704,κρύβω,to hide,прятать,A2,verbs
@@ -775,7 +775,7 @@ id,greek,english,russian,level,group
 774,με,with,с,A2,basics
 775,μεγάλος,"big, large",большой,A2,descriptions
 776,μέγεθος,size,размер,A2,objects
-777,μεθαύριο,the day after tomorrow,послезавтра,A2,basics
+777,μεθαύριο,the day after tomorrow,послезавтра,A2,time
 778,μελαχρινός,dark haired,темноволосый,A2,colors
 779,μελετάω,"to study, examine",изучать,A2,verbs
 780,μέλη του σώματος,parts of the body,части тела,A2,body
@@ -857,7 +857,7 @@ id,greek,english,russian,level,group
 856,μύτη,nose,нос,A2,body
 857,μωρό,baby,ребенок,A2,people
 858,ναι,yes,да,A2,basics
-859,νέος,young,молодой,A2,basics
+859,νέος,young,молодой,A2,descriptions
 860,νερό,water,вода,A2,food
 861,νησί,island,остров,A2,weather
 862,νικητής,winner,победитель,A2,sports
@@ -1003,7 +1003,7 @@ id,greek,english,russian,level,group
 1002,πενήντα,fifty,пятьдесят,A2,time
 1003,πεντακόσιοι,five hundred,пятьсот,A2,time
 1004,πέντε,five,пять,A2,time
-1005,πεντέμισι,five and a half,пять с половиной,A2,basics
+1005,πεντέμισι,five and a half,пять с половиной,A2,time
 1006,πεπόνι,melon,дыня,A2,food
 1007,περιβάλλον,environment,окружающая среда,A2,time
 1008,περιγράφω,to describe,описывать,A2,verbs
@@ -1119,7 +1119,7 @@ id,greek,english,russian,level,group
 1118,πυρετός,fever,жар,A2,body
 1119,πωλητής,"salesperson, shop assistant","продавец, ассистент магазина",A2,clothes
 1120,πώς,how,как,A2,basics
-1121,πώς σε λένε;,what's your name?,как тебя зовут?,A2,basics
+1121,πώς σε λένε;,what's your name?,как тебя зовут?,A2,communication
 1122,ραδιόφωνο,radio,радио,A2,communication
 1123,ρεπό,day off,выходной,A2,time
 1124,ρεύμα (ηλεκτρικό),electricity,электричество,A2,concepts
@@ -1200,7 +1200,7 @@ id,greek,english,russian,level,group
 1199,στολίδι,ornament,украшение,A2,holidays
 1200,στολίζω,to decorate,украшать,A2,verbs
 1201,στολισμένος,decorated,украшенный,A2,holidays
-1202,συγνώμη!,"sorry, excuse me","извините, прошу прощения",A2,basics
+1202,συγνώμη!,"sorry, excuse me","извините, прошу прощения",A2,communication
 1203,συγνώμη,apology,извинение,A2,communication
 1204,συγγραφέας,author,автор,A2,professions
 1205,συγκρίνω,to compare,сравнивать,A2,verbs
@@ -1226,7 +1226,7 @@ id,greek,english,russian,level,group
 1225,συνεχίζω,"to continue, to go on",продолжать,A2,verbs
 1226,συνήθως,usually,обычно,A2,descriptions
 1227,σύννεφο,cloud,облако,A2,weather
-1228,συνολικά,in total,в целом,A2,basics
+1228,συνολικά,in total,в целом,A2,concepts
 1229,συνταγή,recipe,рецепт,A2,food
 1230,σύντομα,soon,скоро,A2,time
 1231,σύντομος,"brief, short","краткий, короткий",A2,descriptions
@@ -1260,7 +1260,7 @@ id,greek,english,russian,level,group
 1259,ταξίδι,"travel, journey",путешествие,A2,city
 1260,ταξιδιωτικό γραφείο,travel agency,туристическое агентство,A2,city
 1261,ταράτσα,rooftop,крыша,A2,home
-1262,ταυτόχρονα,at the same time,одновременно,A2,basics
+1262,ταυτόχρονα,at the same time,одновременно,A2,time
 1263,ταχυδρομείο,post office,почтовое отделение,A2,school
 1264,τέλεια,perfect,совершенный,A2,descriptions
 1265,τελεία,"full stop, period",точка,A2,concepts
@@ -1279,7 +1279,7 @@ id,greek,english,russian,level,group
 1278,τζάκι,fireplace,камин,A2,weather
 1279,τζαμί,mosque,мечеть,A2,society
 1280,τζάμι,window,окно,A2,home
-1281,τζάμπα,"free, for nothing","бесплатно, даром",A2,basics
+1281,τζάμπα,"free, for nothing","бесплатно, даром",A2,money
 1282,τζιν,jeans,джинсы,A2,clothes
 1283,τηγανητός,fried,жареный,A2,food
 1284,τηγανίζω,to fry,жарить,A2,verbs
@@ -1370,7 +1370,7 @@ id,greek,english,russian,level,group
 1369,φεβρουάριος,February,февраль,A2,time
 1370,φέρνω,to bring,приносить,A2,verbs
 1371,φέτα,feta cheese,сыр фета,A2,food
-1372,φέτος,this year,в этом году,A2,basics
+1372,φέτος,this year,в этом году,A2,time
 1373,φεύγω,to leave,уходить,A2,verbs
 1374,φήμη,rumor,слух,A2,communication
 1375,φθινόπωρο,autumn,осень,A2,time
@@ -1614,7 +1614,7 @@ id,greek,english,russian,level,group
 1613,πηγαίνω διακοπές,to go on holiday,уезжать в отпуск,A2,leisure
 1614,διάλειμμα,break,перерыв,A2,objects
 1615,διαρκώ,to last,длиться,A2,verbs
-1616,διάσημος,"famous, well known","известный, хорошо известный",A2,basics
+1616,διάσημος,"famous, well known","известный, хорошо известный",A2,descriptions
 1617,διασκέδαση,"entertainment, fun","развлечения, веселье",A2,concepts
 1618,διασκέδαση!,Have fun!,Веселись!,A2,objects
 1619,διάστημα,"period, time","период, время",A2,time
@@ -1693,7 +1693,7 @@ id,greek,english,russian,level,group
 1692,επαναλαμβάνω,to repeat,повторять,A2,verbs
 1693,επειδή,because,потому что,A2,basics
 1694,δικοί του,"his people, his family","его близкие, его семья",A2,descriptions
-1695,δικοί σας,"your people, your family","ваши близкие, ваша семья",A2,basics
+1695,δικοί σας,"your people, your family","ваши близкие, ваша семья",A2,people
 1696,δίνομαι,to be given,быть предоставленным,A2,verbs
 1697,ΔΟΥ (Δημόσια Οικονομική Υπηρεσία),tax office,налоговая служба,A2,school
 1698,δουλειές σπιτιούι,housework,работа по дому,A2,school
@@ -1763,7 +1763,7 @@ id,greek,english,russian,level,group
 1762,κάδρο,"frame, picture frame","рамка, картинная рамка",A2,concepts
 1763,κάγκελο,"bar, railing","решётка, перила",A2,objects
 1764,καθαριστικό,"detergent, cleanser","моющее средство, очиститель",A2,home
-1765,καθημερινά,"daily, every day","ежедневно, каждый день",A2,basics
+1765,καθημερινά,"daily, every day","ежедневно, каждый день",A2,time
 1766,αυτόν τον καιρό,at the moment,на данный момент,A2,descriptions
 1767,καίω,to burn,гореть,A2,verbs
 1768,καλά,"good, well","хороший, хорошо",A2,feelings
@@ -1784,7 +1784,7 @@ id,greek,english,russian,level,group
 1783,να,"any, anybody",любой,A2,basics
 1784,κανονικός,"normal, regular","нормальный, регулярно",A2,concepts
 1785,κανονικά,"normally, regularly","нормально, регулярно",A2,descriptions
-1786,πόσο κάνει;,how much does it cost?,сколько это стоит?,A2,basics
+1786,πόσο κάνει;,how much does it cost?,сколько это стоит?,A2,money
 1787,καρδιολόγος,cardiologist,кардиолог,A2,health
 1788,Κάρμεν,Carmen,Кармен,A2,names
 1789,καρναβάλι,Carnival,карнавал,A2,leisure
@@ -1812,7 +1812,7 @@ id,greek,english,russian,level,group
 1811,κεραυνός,thunder,гром,A2,space
 1812,κίνδυνος,"danger, risk","опасность, риск",A2,concepts
 1813,κίνηση,traffic,трафик,A2,city
-1814,κιόλας,already,уже,A2,basics
+1814,κιόλας,already,уже,A2,time
 1815,κλασικός,classical,классический,A2,descriptions
 1816,κλειδί-λέξη,key word,ключевое слово,A2,home
 1817,κλειδώνω,"to lock, to lock up","блокировать, запирать",A2,verbs
@@ -1868,7 +1868,7 @@ id,greek,english,russian,level,group
 1867,λεφτά,money,деньги,A2,money
 1868,λήγω,to expire,истекать,A2,verbs
 1869,ληξιαρχείο,registry office,бюро регистрации,A2,school
-1870,λίγο,for a while (σε),немного,A2,basics
+1870,λίγο,for a while (σε),немного,A2,time
 1871,Λίνκον Αβραάμ,Abraham Lincoln,Авраам Линкольн,A2,names
 1872,Λίτσα,Litsa,Литса,A2,names
 1873,λιώνω,to melt,таять,A2,verbs
@@ -1876,7 +1876,7 @@ id,greek,english,russian,level,group
 1875,λογοτεχνία,literature,литература,A2,music
 1876,Λούβρο,Louvre,Лувр,A2,geography
 1877,λύση,"solution, answer","решение, ответ",A2,communication
-1878,μ.μ.,after noon,после полудня,A2,basics
+1878,μ.μ.,after noon,после полудня,A2,time
 1879,μα,but,но,A2,basics
 1880,μαγειρική,cooking,кулинария,A2,food
 1881,μαζεύω από κάτω,to pick,выбирать,A2,verbs
@@ -1933,7 +1933,7 @@ id,greek,english,russian,level,group
 1932,Να ζήσεις!,Happy birthday!,С днем рождения!,A2,feelings
 1933,ναός,"church, temple","церковь, храм",A2,society
 1934,νέα,news,новости,A2,communication
-1935,νεαρός,young,молодой,A2,basics
+1935,νεαρός,young,молодой,A2,descriptions
 1936,Νεκτάριος,Nektarios,Нектарио,A2,names
 1937,νευριάζω,to get angry,"злиться, раздражаться",A2,verbs
 1938,νηπιαγωγείο,kindergarten,детский сад,A2,home
@@ -2001,7 +2001,7 @@ id,greek,english,russian,level,group
 2000,παραγωγή προφορικού λόγου,speaking,устная речь,A2,communication
 2001,παραγγέλλω,to order,заказывать,A2,verbs
 2002,σας παρακαλώ!,please!,пожалуйста!,A2,basics
-2003,παραμονή,"eve, the day before","канун, день накануне",A2,basics
+2003,παραμονή,"eve, the day before","канун, день накануне",A2,time
 2004,παράπονο,complaint,жалоба,A2,objects
 2005,παράσταση,"show, performance","шоу, исполнение",A2,music
 2006,παρατήρηση,"comment, remark","комментарий, замечание",A2,concepts
@@ -2124,7 +2124,7 @@ id,greek,english,russian,level,group
 2123,συγγραφέας,author,автор,A2,professions
 2124,συγκάτοικος,roommate,сосед по комнате,A2,people
 2125,συγκρότημα,group,группа,A2,space
-2126,συγγνώμη,apology,извинение,A2,basics
+2126,συγγνώμη,apology,извинение,A2,communication
 2127,συγγνώμη!,i'm sorry!,прости!,A2,basics
 2128,συζητάω,to discuss,обсуждать,A2,verbs
 2129,συλλέγω,to collect,собирать,A2,verbs
@@ -2192,7 +2192,7 @@ id,greek,english,russian,level,group
 2191,Φάμπιο,Fabio,Фабио,A2,names
 2192,φανταστικά,wonderfully,чудесно,A2,descriptions
 2193,φασόλι,bean,боб,A2,food
-2194,φέιγ βολάν,"flysheet, leaflet","лист, листовка",A2,basics
+2194,φέιγ βολάν,"flysheet, leaflet","лист, листовка",A2,communication
 2195,φεστιβάλ,festival,фестиваль,A2,leisure
 2196,φετινός,of this year,"этого года, нынешний",A2,basics
 2197,φθηνός,cheap,дешевый,A2,clothes
@@ -2210,7 +2210,7 @@ id,greek,english,russian,level,group
 2209,φροντίζω,to take care of,заботиться о,A2,verbs
 2210,φροντίδα,care,уход,A2,objects
 2211,φτερό,"feather, wing","перо, крыло",A2,concepts
-2212,φυλλάδιο,"booklet, leaflet","буклет, листовка",A2,basics
+2212,φυλλάδιο,"booklet, leaflet","буклет, листовка",A2,communication
 2213,φυσικό αέριο,natural gas,природный газ,A2,weather
 2214,φυτό,plant,растение,A2,nature
 2215,φυτεύω,to plant,сажать,A2,verbs
@@ -2222,7 +2222,7 @@ id,greek,english,russian,level,group
 2221,φωτογράφος,photographer,фотограф,A2,professions
 2222,χάδι,touch,ласка,A2,objects
 2223,χαιρετάω,to say hello,поздороваться,A2,verbs
-2224,χαίρετε,"hello, goodbye","здравствуйте, до свидания",A2,basics
+2224,χαίρετε,"hello, goodbye","здравствуйте, до свидания",A2,communication
 2225,χαιρετισμός,greeting,приветствие,A2,objects
 2226,χαλί,carpet,ковер,A2,objects
 2227,χαμηλός,"short, low","короткий, низкий",A2,descriptions
@@ -2294,7 +2294,7 @@ id,greek,english,russian,level,group
 2293,αιώνας,century,столетие,B1,objects
 2294,ακατάλληλος,inappropriate,неуместный,B1,objects
 2295,ακίνδυνος,harmless,безвредный,B1,descriptions
-2296,ακίνητος,"still, motionless","неподвижный, застывший",B1,basics
+2296,ακίνητος,"still, motionless","неподвижный, застывший",B1,descriptions
 2297,άκομψος,"inelegant, in poor taste","неэлегантный, в плохом вкусе",B1,concepts
 2298,ακούγομαι,to be heard,быть услышанным,B1,verbs
 2299,ακουμπάω,"to lean, to touch","наклоняться, касаться",B1,verbs
@@ -2432,7 +2432,7 @@ id,greek,english,russian,level,group
 2431,αντίστροφα,contrarily,противоположно,B1,descriptions
 2432,αντίχειρας,thumb,большой палец,B1,body
 2433,αντοχή,"endurance, durability","выносливость, долговечность",B1,concepts
-2434,αντωνυμία,pronoun,местоимение,B1,basics
+2434,αντωνυμία,pronoun,местоимение,B1,school
 2435,Άνω Πορόια,Ano Poroia,Ано Пороя,B1,geography
 2436,ανώι,first floor,первый этаж,B1,home
 2437,άνω κάτω,in a mess,в беспорядке,B1,objects
@@ -2450,7 +2450,7 @@ id,greek,english,russian,level,group
 2449,αξιολόγηση,"evaluation, assessment",оценка,B1,school
 2450,αξιοποίηση,utilization,использование,B1,concepts
 2451,αξιοποιώ,to utilize,использовать с пользой,B1,verbs
-2452,αόριστο άρθρο,indefinite article,неопределённый артикль,B1,basics
+2452,αόριστο άρθρο,indefinite article,неопределённый артикль,B1,school
 2453,αόριστα,indefinitely,неопределённо,B1,descriptions
 2454,απαγορευμένος,"prohibited, forbidden",запрещенный,B1,concepts
 2455,απαγορεύω,to forbid,запрещать,B1,verbs
@@ -2593,7 +2593,7 @@ id,greek,english,russian,level,group
 2592,ατσαλάκωτος,uncreased,"несмятый, без складок",B1,descriptions
 2593,Αττική,Attica,Аттика,B1,countries
 2594,αυγή,dawn,рассвет,B1,nature
-2595,αυθεντικός,"authentic, original","подлинный, оригинальный",B1,basics
+2595,αυθεντικός,"authentic, original","подлинный, оригинальный",B1,descriptions
 2596,αυξάνω,to increase,увеличивать,B1,verbs
 2597,αυξημένος,increased,увеличенный,B1,descriptions
 2598,αύξηση,"increase, raise","увеличение, повышение",B1,concepts
@@ -2699,7 +2699,7 @@ id,greek,english,russian,level,group
 2698,βραδιάζει,it's getting dark,становится темно,B1,objects
 2699,βραδινός,evening,вечерний,B1,time
 2700,βράσιμο,boiling,кипящий,B1,objects
-2701,βραχιόλι,bracelet,браслет,B1,basics
+2701,βραχιόλι,bracelet,браслет,B1,clothes
 2702,βράχος,rock,скала,B1,objects
 2703,βρεγμένος,wet,мокрый,B1,objects
 2704,βρεφικός,infant,младенческий,B1,people
@@ -2753,7 +2753,7 @@ id,greek,english,russian,level,group
 2752,γι’ αυτό,that's why,вот почему,B1,basics
 2753,γιακάς,collar,воротник,B1,clothes
 2754,Γιάννενα,Giannena,Янина,B1,geography
-2755,γιαουρτάς,man who sells yoghurt,"человек, который продает йогурт",B1,basics
+2755,γιαουρτάς,man who sells yoghurt,"человек, который продает йогурт",B1,professions
 2756,γίδι,goat,коза,B1,animals
 2757,γιορταστικός,festive,праздничный,B1,descriptions
 2758,γιουβαρλάκια,meatball soup,суп с фрикадельками,B1,food
@@ -2854,7 +2854,7 @@ id,greek,english,russian,level,group
 2853,διαμάντι,diamond,алмаз,B1,objects
 2854,διαμένω,"to stay, to live","оставаться, жить",B1,verbs
 2855,διαμορφώνω,"to form, to shape",формировать,B1,verbs
-2856,διαμπερές,"through, on both sides","сквозной, на обе стороны",B1,basics
+2856,διαμπερές,"through, on both sides","сквозной, на обе стороны",B1,space
 2857,διανομή,delivery,доставка,B1,shopping
 2858,διανυκτέρευση,overnight stay,ночёвка,B1,time
 2859,διανυκτερεύω,to spend the night,ночевать,B1,verbs
@@ -2888,7 +2888,7 @@ id,greek,english,russian,level,group
 2887,διπλωματικός,diplomatic,дипломатический,B1,descriptions
 2888,δισεκατομμύριο,billion,миллиарды,B1,time
 2889,δίχως,without,без,B1,basics
-2890,διώροφος,with two floors,с двумя этажами,B1,basics
+2890,διώροφος,with two floors,с двумя этажами,B1,home
 2891,διώχνω,"to send away, drive away","прогонять, отсылать",B1,verbs
 2892,δοκιμασία,"trial, ordeal",испытание,B1,descriptions
 2893,δοκιμασμένος,tested,испытанный,B1,descriptions
@@ -2911,8 +2911,8 @@ id,greek,english,russian,level,group
 2910,δροσίζω,to cool,охлаждать,B1,verbs
 2911,δυναμικός,"vigorous, dynamic","энергичный, динамический",B1,descriptions
 2912,δυναμισμός,dynamism,динамичность,B1,concepts
-2913,δυναμώνω,"strengthen, to grow strong","укреплять, становиться сильным",B1,basics
-2914,δυναμωτικός,strengthening,укрепление,B1,basics
+2913,δυναμώνω,"strengthen, to grow strong","укреплять, становиться сильным",B1,verbs
+2914,δυναμωτικός,strengthening,укрепление,B1,descriptions
 2915,δυόσμος,spearmint,мята,B1,food
 2916,δυσαρέσκεια,displeasure,недовольство,B1,descriptions
 2917,δυσάρεστος,unpleasant,неприятный,B1,descriptions
@@ -3110,7 +3110,7 @@ id,greek,english,russian,level,group
 3109,επιμονή,persistence,настойчивость,B1,concepts
 3110,επιπλωμένος,furnished,меблированный,B1,descriptions
 3111,επίπτωση,"effect, impact","эффект, воздействие",B1,concepts
-3112,επίρρημα,adverb,наречие,B1,basics
+3112,επίρρημα,adverb,наречие,B1,school
 3113,επισκέπτης,"visitor, guest","посетитель, гость",B1,people
 3114,επισκευάζω,"to repair, to fix","ремонтировать, исправлять",B1,verbs
 3115,επισκευή,"repair, fix","ремонт, исправлять",B1,concepts
@@ -3120,7 +3120,7 @@ id,greek,english,russian,level,group
 3119,επιστροφή,return,возвращение,B1,objects
 3120,επίτευγμα,"accomplishment, achievement",достижение,B1,descriptions
 3121,επίτηδες,deliberately,сознательно,B1,descriptions
-3122,επιτραπέζιος,"tabletop, board","настольный, столовый",B1,basics
+3122,επιτραπέζιος,"tabletop, board","настольный, столовый",B1,objects
 3123,επιτροπή,committee,комитет,B1,objects
 3124,επιτυχημένος,successful,успешный,B1,concepts
 3125,επιφάνεια,surface,поверхность,B1,objects
@@ -3295,7 +3295,7 @@ id,greek,english,russian,level,group
 3294,καθαριστήριο,dry cleaner,химчистка,B1,descriptions
 3295,κάθε φορά,every time,каждый раз,B1,basics
 3296,καθήκον,duty,долг,B1,objects
-3297,καθημερινός,everyday,ежедневный,B1,basics
+3297,καθημερινός,everyday,ежедневный,B1,time
 3298,καθημερινότητα,daily life,повседневная жизнь,B1,objects
 3299,κάθισμα,seat,место,B1,objects
 3300,καθιστικό,living room,гостиная,B1,home
@@ -3319,7 +3319,7 @@ id,greek,english,russian,level,group
 3318,καλοπέραση,"good life, good time","хорошая жизнь, приятное время",B1,time
 3319,καλορίζικος,"lucky, auspicious","счастливый, удачливый",B1,descriptions
 3320,για το δικό σας καλό,for your own good,для твоего же блага,B1,basics
-3321,καλότυχος,person who has good luck,"человек, которому повезло",B1,basics
+3321,καλότυχος,person who has good luck,"человек, которому повезло",B1,people
 3322,καλούπι,"mold, cast","форма, литейная форма",B1,descriptions
 3323,κάλυμμα,"cover, top","крышка, вершина",B1,concepts
 3324,καλυτερεύω,"to improve, to get better","улучшаться, становиться лучше",B1,verbs
@@ -3476,7 +3476,7 @@ id,greek,english,russian,level,group
 3475,κουκούλα,hood,капюшон,B1,concepts
 3476,κουλούρι,bagel,бублик,B1,objects
 3477,κουλούρι σουσαμένιο,sesame bagel,кунжутный бублик,B1,objects
-3478,κουλουρτζής,man who sells bagels,"человек, который продает бублики",B1,basics
+3478,κουλουρτζής,man who sells bagels,"человек, который продает бублики",B1,professions
 3479,κουλτούρα,culture,культура,B1,objects
 3480,κουμπί,button,кнопка,B1,clothes
 3481,κουνάω,"to shake, to swing","трястись, качаться",B1,verbs
@@ -3491,7 +3491,7 @@ id,greek,english,russian,level,group
 3490,κουταλάκι του γλυκού,teaspoon,чайная ложка,B1,food
 3491,κουτός,"dumb, foolish","тупой, глупый",B1,descriptions
 3492,κουτσομπολιό,gossip,сплетни,B1,objects
-3493,κούφωμα,door or window frame,дверная или оконная рама,B1,basics
+3493,κούφωμα,door or window frame,дверная или оконная рама,B1,home
 3494,κοχύλι,seashell,ракушка,B1,objects
 3495,κραγιόν,lipstick,губная помада,B1,objects
 3496,κράνος,helmet,шлем,B1,city
@@ -3674,10 +3674,10 @@ id,greek,english,russian,level,group
 3673,μικροβιολόγος,microbiologist,микробиолог,B1,health
 3674,μικροσκόπιο,microscope,микроскоп,B1,health
 3675,μικρόσωμος,"petite, little","мелкий, маленький",B1,concepts
-3676,μίνι,"very small, miniscule","очень маленький, крошечный",B1,basics
+3676,μίνι,"very small, miniscule","очень маленький, крошечный",B1,descriptions
 3677,μίξερ,mixer,смеситель,B1,home
 3678,μίσος,hate,ненависть,B1,feelings
-3679,μισοτιμής,"at half price, very cheap","половину цены, очень дешево",B1,basics
+3679,μισοτιμής,"at half price, very cheap","половину цены, очень дешево",B1,money
 3680,μισώ,to hate,ненавидеть,B1,verbs
 3681,Μογγολία,Mongolia,Монголия,B1,countries
 3682,μόδιστρος,"fashion designer, tailor","модный дизайнер, портной",B1,professions
@@ -3689,12 +3689,12 @@ id,greek,english,russian,level,group
 3688,μολύνω,to pollute,загрязнять,B1,verbs
 3689,μοναδικά,uniquely,уникально,B1,descriptions
 3690,μοναξιά,"loneliness, solitude",одиночество,B1,space
-3691,μοναχός,all alone,одиноко,B1,basics
+3691,μοναχός,all alone,одиноко,B1,descriptions
 3692,μονάχα,only,только,B1,basics
 3693,μοναχικός,lonely,одинокий,B1,descriptions
-3694,μοναχοπαίδι,only child,единственный ребёнок,B1,basics
+3694,μοναχοπαίδι,only child,единственный ребёнок,B1,people
 3695,μονιμότητα,"permanence, tenure","неизменность, срок полномочий",B1,concepts
-3696,μονολεκτικός,with one word,одним словом,B1,basics
+3696,μονολεκτικός,with one word,одним словом,B1,communication
 3697,μονόχρωμος,"plain, monochrome","простой, монохромный",B1,feelings
 3698,μοντέλο,model,модель,B1,objects
 3699,μονώροφος,with a single floor,с одним этажом,B1,basics
@@ -3732,7 +3732,7 @@ id,greek,english,russian,level,group
 3731,μυγιάζομαι,to take offense easily,слишком остро реагировать,B1,verbs
 3732,μύδι,mussel,мидия,B1,food
 3733,μύδια σαγανάκι,fried mussels,жареные мидии,B1,food
-3734,μυδοπίλαφο,mussels with rice,мидии с рисом,B1,basics
+3734,μυδοπίλαφο,mussels with rice,мидии с рисом,B1,food
 3735,μυθιστόρημα,novel,роман,B1,music
 3736,μυρμήγκι,ant,муравей,B1,descriptions
 3737,μυρωδιά,"smell, scent",запах,B1,descriptions
@@ -3744,7 +3744,7 @@ id,greek,english,russian,level,group
 3743,ναυάγιο,shipwreck,кораблекрушение,B1,objects
 3744,Ναύπακτος,Nafpaktos,Нафпактос,B1,geography
 3745,ναύτης,sailor,моряк,B1,professions
-3746,νεανικός,youthful,молодой,B1,basics
+3746,νεανικός,youthful,молодой,B1,descriptions
 3747,νεόδμητος,newly built,недавно построенный,B1,descriptions
 3748,νεοκλασικός,neoclassical,неоклассический,B1,descriptions
 3749,νεροχύτης,"sink, wash basin","раковина, мойка",B1,concepts
@@ -3785,7 +3785,7 @@ id,greek,english,russian,level,group
 3784,νύφη,"bride, daughter-in-law","невеста, невестка",B1,people
 3785,νύχι,nail,ноготь,B1,body
 3786,ξάδερφος,cousin,"кузен, кузина",B1,people
-3787,ξακουστός,"famous, wellknown",известный,B1,basics
+3787,ξακουστός,"famous, wellknown",известный,B1,descriptions
 3788,ξαναγίνομαι,to become again,снова становиться,B1,verbs
 3789,ξαναθυμάμαι,"to remember again, to recall","вспоминать снова, напомнить",B1,verbs
 3790,ξαναμαζεύω,to regather,собирать,B1,verbs
@@ -3834,9 +3834,9 @@ id,greek,english,russian,level,group
 3833,οικονομικά,"economically, financially","экономически, финансово",B1,communication
 3834,οίκος,house,дом,B1,home
 3835,Όλγα,Olga,Ольга,B1,names
-3836,ολοκληρωμένος,complete,полный,B1,basics
+3836,ολοκληρωμένος,complete,полный,B1,descriptions
 3837,ολοκληρώνω,"to complete, to finish","завершить, закончить",B1,verbs
-3838,ολοκλήρωση,completion,завершение,B1,basics
+3838,ολοκλήρωση,completion,завершение,B1,concepts
 3839,ολοφάνερα,noticeably,заметно,B1,descriptions
 3840,ολυμπιακός,olympic,олимпийский,B1,sports
 3841,ομαδικός,"group, team","группа, команда",B1,sports
@@ -3862,7 +3862,7 @@ id,greek,english,russian,level,group
 3861,όριο,limit,предел,B1,objects
 3862,ορισμένος,certain,определенный,B1,objects
 3863,ορισμός,definition,определение,B1,concepts
-3864,οριστικό άρθρο,definite article,определенный артикль,B1,basics
+3864,οριστικό άρθρο,definite article,определенный артикль,B1,school
 3865,όρος,term,термин,B1,objects
 3866,οροφοδιαμέρισμα,one floor apartment,одноэтажная квартира,B1,home
 3867,ορχήστρα,orchestra,оркестр,B1,music
@@ -3872,7 +3872,7 @@ id,greek,english,russian,level,group
 3871,ουδέτερος,neutral,нейтральный,B1,descriptions
 3872,ουρά,"queue, line","очередь, линия",B1,space
 3873,ουσία,"essence, substance","суть, сущность",B1,concepts
-3874,ουσιαστικό,noun,существительное,B1,basics
+3874,ουσιαστικό,noun,существительное,B1,school
 3875,ούτε,not even,даже,B1,basics
 3876,οφείλομαι,to be owed,быть должным,B1,verbs
 3877,οφείλω,to owe,задолжать,B1,verbs
@@ -3894,10 +3894,10 @@ id,greek,english,russian,level,group
 3893,παινεύω,to praise,хвалить,B1,verbs
 3894,παίρνω μέρος,"to take part, participate","принимать участие, участвовать",B1,verbs
 3895,παιχνιδιάρης,playful,игривый,B1,descriptions
-3896,παλ,"pale, very soft hue","бледный, очень мягкий оттенок",B1,basics
+3896,παλ,"pale, very soft hue","бледный, очень мягкий оттенок",B1,colors
 3897,παλάμη,"palm, hand","ладонь, рука",B1,body
 3898,παλάτι,palace,дворец,B1,objects
-3899,παλέτα,palette,палитра,B1,basics
+3899,παλέτα,palette,палитра,B1,colors
 3900,παλιός,old,старый,B1,descriptions
 3901,Παναγιώτης,Panagiotis,Панагиот,B1,names
 3902,πανάκριβος,extremely expensive,очень дорогой,B1,clothes
@@ -3910,7 +3910,7 @@ id,greek,english,russian,level,group
 3909,παντοπωλείο,grocery store,продуктовый магазин,B1,clothes
 3910,παντού,everywhere,повсюду,B1,basics
 3911,παξιμάδι,"rusk, crouton","сухарь, гренок",B1,food
-3912,παπαγαλία,reciting something by heart,чтение чего-то наизусть,B1,basics
+3912,παπαγαλία,reciting something by heart,чтение чего-то наизусть,B1,school
 3913,παπάγια,papaya,папайя,B1,food
 3914,παπάς,priest,священник,B1,objects
 3915,παπί,soaking wet,мокрый,B1,objects
@@ -3990,7 +3990,7 @@ id,greek,english,russian,level,group
 3989,περιπέτεια,"action movie, adventure","боевик, приключение",B1,music
 3990,περιπετειώδηςς,adventurous,предприимчивый,B1,descriptions
 3991,περιποιούμαι,to look after,ухаживать за,B1,verbs
-3992,περιπτεράς,man who works in a kiosk,"человек, который работает в киоске",B1,basics
+3992,περιπτεράς,man who works in a kiosk,"человек, который работает в киоске",B1,professions
 3993,περισσεύω,to be left over,оставаться лишним,B1,verbs
 3994,περίσταση,occasion,случай,B1,concepts
 3995,περιστατικό,incident,инцидент,B1,descriptions
@@ -4035,7 +4035,7 @@ id,greek,english,russian,level,group
 4034,πλάθω,"to mold, to roll","лепить, раскатывать",B1,verbs
 4035,πλαίσιο,"context, framework","контекст, рамки",B1,concepts
 4036,πλακάκι,tile,плитка,B1,home
-4037,πλακατζής,worker who lays tiles,"рабочий, который кладет плитки",B1,basics
+4037,πλακατζής,worker who lays tiles,"рабочий, который кладет плитки",B1,professions
 4038,πλακώνω,"to press down, to cover","прижиматься, покрывать",B1,verbs
 4039,πλαστελίνη,"play dough, plasticine",пластилин,B1,descriptions
 4040,πλατύς,wide,широкий,B1,descriptions
@@ -4048,11 +4048,11 @@ id,greek,english,russian,level,group
 4047,πλευρά,side,сторона,B1,objects
 4048,πληκτρολογώ,to type,печатать,B1,verbs
 4049,πλημμύρα,flood,наводнение,B1,objects
-4050,πλήρης,complete,полный,B1,basics
+4050,πλήρης,complete,полный,B1,descriptions
 4051,πληροφοριακός,informative,познавательный,B1,descriptions
 4052,πληροφορώ,to inform,информировать,B1,verbs
 4053,πληρωμή,payment,платеж,B1,money
-4054,πλήρως,"completely, totally",полностью,B1,basics
+4054,πλήρως,"completely, totally",полностью,B1,descriptions
 4055,πλοκή,plot,сюжет,B1,objects
 4056,πλούτος,wealth,богатство,B1,money
 4057,πλύσιμο,washing,стирка,B1,objects
@@ -4072,8 +4072,8 @@ id,greek,english,russian,level,group
 4071,πολιτικός,political,политический,B1,descriptions
 4072,πολιτική,politics,политика,B1,objects
 4073,πόλος,pole,полюс,B1,objects
-4074,πολύξερος,"knowledgeable, know-it-all","обладающий знаниями, всезнайка",B1,basics
-4075,πολυταξιδευμένος,who has travelled extensively,кто много путешествовал,B1,basics
+4074,πολύξερος,"knowledgeable, know-it-all","обладающий знаниями, всезнайка",B1,descriptions
+4075,πολυταξιδευμένος,who has travelled extensively,кто много путешествовал,B1,travel
 4076,πολυτέλεια,luxury,роскошь,B1,objects
 4077,πολυτελής,luxurious,роскошный,B1,descriptions
 4078,πολύτιμος,"precious, valuable","драгоценный, ценный",B1,descriptions
@@ -4106,7 +4106,7 @@ id,greek,english,russian,level,group
 4105,προεξέχω,to stand out,выделяться,B1,verbs
 4106,προέρχομαι,"to come from, to originate","приходить из, порождать",B1,verbs
 4107,προετοιμάζομαι,to prepare myself,подготовить себя,B1,verbs
-4108,πρόθεση,"preposition, intention","предлог, намерение",B1,basics
+4108,πρόθεση,"preposition, intention","предлог, намерение",B1,school
 4109,πρόθυμος,willing,желающий,B1,objects
 4110,προϊστάμενος,"supervisor, manager","руководитель, начальник",B1,verbs
 4111,πρόκειται,"it's going to, it's about to","собираться, быть намеренным",B1,concepts
@@ -4154,7 +4154,7 @@ id,greek,english,russian,level,group
 4153,προφορικές εξετάσεις,oral exams,устные экзамены,B1,objects
 4154,προφυλάσσω,to protect,защищать,B1,verbs
 4155,πρόχειρα,"casually, makeshift","наспех, временно",B1,concepts
-4156,προχθές,the day before yesterday,за день до вчерашнего дня,B1,basics
+4156,προχθές,the day before yesterday,за день до вчерашнего дня,B1,time
 4157,προχωράω,"to move forward, to proceed","двигаться вперед, продолжать",B1,verbs
 4158,πρώην,"ex, former",бывший,B1,concepts
 4159,πρωταγωνιστής,"protagonist, leading person","главный герой, протагонист",B1,people
@@ -4171,7 +4171,7 @@ id,greek,english,russian,level,group
 4170,ράβω,to sew,шить,B1,verbs
 4171,ραδιοφωνικός,radio,радио,B1,communication
 4172,ρακή,raki,раки,B1,food
-4173,ρακόμελο,raki with honey,раки с мёдом,B1,basics
+4173,ρακόμελο,raki with honey,раки с мёдом,B1,food
 4174,ραπ μουσική,rap music,рэп музыка,B1,communication
 4175,ράφι,shelf,полка,B1,home
 4176,ράφτης,"tailor, seamstress","портной, швея",B1,professions
@@ -4220,7 +4220,7 @@ id,greek,english,russian,level,group
 4219,σαρδέλα,sardine,сардина,B1,food
 4220,σαρίκι,turban,тюрбан,B1,clothes
 4221,σαφάρι,safari,сафари,B1,travel
-4222,σβησμένος,"extinct, deleted","вымерший, удаленный",B1,basics
+4222,σβησμένος,"extinct, deleted","вымерший, удаленный",B1,descriptions
 4223,σγουρομάλλης,curly haired,"кудрявый, с вьющимися волосами",B1,descriptions
 4224,σεβασμός,respect,уважение,B1,objects
 4225,σέβομαι,to respect,уважать,B1,verbs
@@ -4280,7 +4280,7 @@ id,greek,english,russian,level,group
 4279,σοφιστικέ,sophisticated,сложный,B1,descriptions
 4280,σοφίτα,attic,чердак,B1,descriptions
 4281,σπανακόπιτα,"spanakopita, a spinach pie","спанакопита, пирог со шпинатом",B1,food
-4282,σπανακόρυζο,spinach with rice,шпинат с рисом,B1,basics
+4282,σπανακόρυζο,spinach with rice,шпинат с рисом,B1,food
 4283,σπάνιος,rare,редкий,B1,objects
 4284,σπαρτό,crops,посевы,B1,objects
 4285,σπάσιμο,"crack, fracture","трещина, перелом",B1,concepts
@@ -4288,7 +4288,7 @@ id,greek,english,russian,level,group
 4287,σπάταλος,wasteful,расточительный,B1,descriptions
 4288,σπαταλάω,to waste,"расточать, тратить попусту",B1,verbs
 4289,σπατάλη,waste,"расточительство, транжирство",B1,objects
-4290,σπιτοκαλυβάκι,very small house,очень маленький дом,B1,basics
+4290,σπιτοκαλυβάκι,very small house,очень маленький дом,B1,home
 4291,σπορ,casual,"спортивный, повседневный",B1,descriptions
 4292,Σποράδες,Sporades,Спорады,B1,geography
 4293,σπόρος,seed,семя,B1,descriptions
@@ -4311,7 +4311,7 @@ id,greek,english,russian,level,group
 4310,Στέλιος,Stelios,Стелиос,B1,names
 4311,στεναχωριέμαι,to worry,беспокоиться,B1,verbs
 4312,στενεύω,"to take in, to narrow","сужать, ушивать",B1,verbs
-4313,στενόχωρος,"poky, small and cramped","тесный, маленький и неудобный",B1,basics
+4313,στενόχωρος,"poky, small and cramped","тесный, маленький и неудобный",B1,home
 4314,στενοχώρια,sadness,печаль,B1,concepts
 4315,στεριά,land,земля,B1,weather
 4316,στήριγμα,"pillar, brace","столб, скобка",B1,concepts
@@ -4371,7 +4371,7 @@ id,greek,english,russian,level,group
 4370,συμπερασματικά,in conclusion,в заключение,B1,concepts
 4371,συμπεριλαμβάνομαι,to be included,быть включенным,B1,verbs
 4372,συμπεριφέρομαι,to behave,вести себя,B1,verbs
-4373,συμπληρωμένος,"filled out, completed","заполненный, завершено",B1,basics
+4373,συμπληρωμένος,"filled out, completed","заполненный, завершено",B1,descriptions
 4374,συμφέρον,interest,интерес,B1,objects
 4375,συμφέρω,"to be worth it, be profitable","быть выгодным, стоить того",B1,verbs
 4376,συμφωνία,agreement,соглашение,B1,descriptions
@@ -4382,7 +4382,7 @@ id,greek,english,russian,level,group
 4381,συνδυάζω,to combine,объединять,B1,verbs
 4382,συνδυασμός,combination,сочетание,B1,concepts
 4383,συνέπεια,"consequence, consistency","последствия, согласованность",B1,concepts
-4384,στη συνέχεια,"afterwards, after that","после, после этого",B1,basics
+4384,στη συνέχεια,"afterwards, after that","после, после этого",B1,time
 4385,συνεχίζομαι,to be continued,быть продолжен,B1,verbs
 4386,συνεχώς,constantly,постоянно,B1,descriptions
 4387,συνηθίζω,to get used to,привыкать,B1,verbs
@@ -4454,7 +4454,7 @@ id,greek,english,russian,level,group
 4453,τενεκές,tin container,жестяной контейнер,B1,objects
 4454,τέρας,monster,монстр,B1,objects
 4455,τετραγωνικός,square,квадратный,B1,school
-4456,τετραώροφος,with four floors,с четырьмя этажами,B1,basics
+4456,τετραώροφος,with four floors,с четырьмя этажами,B1,home
 4457,τεχνικός,technical,технический,B1,descriptions
 4458,τεχνίτης,"handyman, craftsman","мастер, ремесленник",B1,concepts
 4459,τεχνολογία,technology,технология,B1,concepts
@@ -4492,7 +4492,7 @@ id,greek,english,russian,level,group
 4491,τριαντάφυλλο,rose,роза,B1,objects
 4492,τριάρι,three bedroom apartment,трехкомнатная квартира,B1,home
 4493,τρίμηνο,three month period,трехмесячный период,B1,time
-4494,τριώροφος,with three floors,с тремя этажами,B1,basics
+4494,τριώροφος,with three floors,с тремя этажами,B1,home
 4495,τρομάζω,"to scare, to frighten",пугать,B1,verbs
 4496,τρομερός,"terrible, horrible",ужасный,B1,descriptions
 4497,τρομοκρατημένος,"terrified, horrified","напуганный, в ужасе",B1,society
@@ -4573,7 +4573,7 @@ id,greek,english,russian,level,group
 4572,φημίζομαι,to be known for,быть известным благодаря,B1,verbs
 4573,φημισμένος,famous,известный,B1,descriptions
 4574,φθινοπωρινός,"fall, autumn",осенний,B1,weather
-4575,φιδάκι,Snakes and Ladders,Змеи и лестницы,B1,basics
+4575,φιδάκι,Snakes and Ladders,Змеи и лестницы,B1,objects
 4576,φίλαθλος,sports fan,спортивный фанат,B1,sports
 4577,Φιλανδία,Finland,Финляндия,B1,countries
 4578,φιλενάδα,girlfriend,девушка,B1,concepts
@@ -4666,7 +4666,7 @@ id,greek,english,russian,level,group
 4665,χιονισμένος,snowy,снежный,B1,weather
 4666,χιονοδρομικός,"ski, skiing",лыжный,B1,sports
 4667,χιονοδρομικό κέντρο,ski resort,горнолыжный курорт,B1,sports
-4668,χιονόπτωση,snowfall,снегопад,B1,basics
+4668,χιονόπτωση,snowfall,снегопад,B1,weather
 4669,χιούμορ,humor,юмор,B1,objects
 4670,χλωμός,pale,бледный,B1,objects
 4671,χοίρος,pig,свинья,B1,animals
@@ -4702,7 +4702,7 @@ id,greek,english,russian,level,group
 4701,χύμα,"loose, in bulk","россыпью, без упаковки",B1,concepts
 4702,χώμα,"soil, earth","почва, земля",B1,weather
 4703,χωματερή,"rubbish dump, garbage dump",мусорная свалка,B1,concepts
-4704,χωμάτινος,earthen,земляной,B1,basics
+4704,χωμάτινος,earthen,земляной,B1,descriptions
 4705,χωμένος,"hidden, nested","скрытый, вложенный",B1,descriptions
 4706,χωράφι,field,поле,B1,nature
 4707,χωράω,to fit,"вмещаться, помещаться",B1,verbs
@@ -4711,7 +4711,7 @@ id,greek,english,russian,level,group
 4710,ψαλίδι,scissors,ножницы,B1,objects
 4711,ψαράς,fisherman,рыбак,B1,sports
 4712,ψάρεμα,fishing,рыбалка,B1,sports
-4713,ψαρικά,"fish dishes, seafood","рыбные блюда, морепродукты",B1,basics
+4713,ψαρικά,"fish dishes, seafood","рыбные блюда, морепродукты",B1,food
 4714,ψαρόσουπα,fish soup,рыбный суп,B1,food
 4715,ψεύτης,liar,"лгун, лжец",B1,objects
 4716,ψηλοτάκουνος,high-heeled,на высоких каблуках,B1,descriptions
@@ -4742,7 +4742,7 @@ id,greek,english,russian,level,group
 4741,ώριμος,mature,зрелый,B1,objects
 4742,ωριμάζω,to mature,созревать,B1,verbs
 4743,ωριμότητα,maturity,зрелость,B1,concepts
-4744,ωτορινολαρυγγολόγος,"ear, throat and nose doctor","оториноларинголог, ЛОР-врач",B1,basics
+4744,ωτορινολαρυγγολόγος,"ear, throat and nose doctor","оториноларинголог, ЛОР-врач",B1,health
 4745,ωφέλεια,usefulness,полезность,B1,society
 4746,ωφέλιμος,useful,полезный,B1,society
 4747,ωφελώ,"to profit, to benefit","приносить пользу, быть полезным",B1,verbs
