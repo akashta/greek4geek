@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import * as Sentry from '@sentry/react';
 import BottomNav from './components/BottomNav';
 import Home from './components/Home';
 import Lesson from './components/Lesson';
@@ -20,6 +21,18 @@ type Screen = 'home' | 'stats' | 'settings' | 'lesson' | 'results';
 
 const storage = getStorageAdapter();
 
+function getQuestionReportKey(question: LessonSession['questions'][number]): string {
+  return `${question.wordId}:${question.promptLanguage}:${question.answerLanguage}`;
+}
+
+function getQuestionReportPayload(question: LessonSession['questions'][number]) {
+  return {
+    greek: question.promptLanguage === 'el' ? question.prompt : question.correctAnswer,
+    translation: question.promptLanguage === 'el' ? question.correctAnswer : question.prompt,
+    translationLanguage: question.promptLanguage === 'el' ? question.answerLanguage : question.promptLanguage,
+  };
+}
+
 function App() {
   const advanceTimeoutRef = useRef<number | null>(null);
   const lastAutoSpokenQuestionRef = useRef<string | null>(null);
@@ -30,6 +43,7 @@ function App() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [currentResponse, setCurrentResponse] = useState<LessonAnswer | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [reportedQuestionKey, setReportedQuestionKey] = useState<string | null>(null);
 
   const currentLevel = progress.settings.currentLevel;
   const currentWords = wordsByLevel[currentLevel];
@@ -122,7 +136,55 @@ function App() {
     setAnswers([]);
     setQuestionIndex(0);
     setCurrentResponse(null);
+    setReportedQuestionKey(null);
     setScreen('lesson');
+  }
+
+  function reportCurrentWord() {
+    if (!question || !activeLesson) {
+      return;
+    }
+
+    const reportKey = getQuestionReportKey(question);
+    if (reportedQuestionKey === reportKey) {
+      return;
+    }
+
+    const { greek, translation, translationLanguage } = getQuestionReportPayload(question);
+
+    Sentry.withScope((scope) => {
+      scope.setTag('feature', 'word-report');
+      scope.setTag('word_id', question.wordId);
+      scope.setTag('group_id', activeLesson.groupId);
+      scope.setTag('level', activeLesson.level);
+      scope.setTag('translation_language', translationLanguage);
+      scope.setContext('word_report', {
+        greek,
+        translation,
+        prompt: question.prompt,
+        correctAnswer: question.correctAnswer,
+        promptLanguage: question.promptLanguage,
+        answerLanguage: question.answerLanguage,
+        isReview: question.isReview,
+      });
+
+      Sentry.captureFeedback(
+        {
+          message: 'Word card reported by user',
+          source: 'word-card-button',
+          url: window.location.href,
+          tags: {
+            feature: 'word-report',
+            word_id: question.wordId,
+            group_id: activeLesson.groupId,
+            level: activeLesson.level,
+            translation_language: translationLanguage,
+          },
+        },
+      );
+    });
+
+    setReportedQuestionKey(reportKey);
   }
 
   function startLessonForGroup(groupId: LessonGroupId) {
@@ -287,6 +349,7 @@ function App() {
     setAnswers([]);
     setQuestionIndex(0);
     setCurrentResponse(null);
+    setReportedQuestionKey(null);
     setScreen('home');
   }
 
@@ -376,6 +439,8 @@ function App() {
           onSubmitChoice={submitChoice}
           onRevealAnswer={revealAnswer}
           onMarkKnown={markKnown}
+          hasReportedIssue={reportedQuestionKey === getQuestionReportKey(question)}
+          onReportIssue={reportCurrentWord}
         />
       )}
       {!needsOnboarding && screen === 'results' && (

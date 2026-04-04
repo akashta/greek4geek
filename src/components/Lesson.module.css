@@ -93,7 +93,29 @@
   color: #1d2a22;
 }
 
+.reportButton {
+  width: 2.35rem;
+  min-width: 2.35rem;
+  min-height: 2.35rem;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #f7e8cc;
+  color: #92571b;
+}
+
+.reportButtonSent {
+  background: #dbf2e4;
+  color: #145942;
+}
+
 .speakerIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.reportIcon {
   width: 1rem;
   height: 1rem;
 }
@@ -123,6 +145,12 @@
   align-items: center;
   min-height: var(--prompt-card-top-height);
   gap: 10px;
+}
+
+.promptCardControls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .promptCard::after {

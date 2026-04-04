@@ -1,6 +1,7 @@
 import type { Level, LevelStats, LessonAnswer, UserProgress, Word, WordProgress } from '../types';
 
 export const LEVELS: Level[] = ['A2', 'B1'];
+const MP3_VOICE_SET = new Set(['aoede', 'charon', 'standard-b']);
 
 export function createEmptyLevelProgress(): LevelStats {
   return {
@@ -78,7 +79,9 @@ export function mergeProgress(rawValue: Partial<UserProgress> | null | undefined
       hasCompletedOnboarding: rawValue.settings?.hasCompletedOnboarding ?? base.settings.hasCompletedOnboarding,
       autoPlayAudio: rawValue.settings?.autoPlayAudio ?? base.settings.autoPlayAudio,
       audioMode: rawValue.settings?.audioMode === 'tts' ? 'tts' : base.settings.audioMode,
-      audioVoice: rawValue.settings?.audioVoice === 'charon' ? 'charon' : base.settings.audioVoice,
+      audioVoice: MP3_VOICE_SET.has(rawValue.settings?.audioVoice ?? '')
+        ? rawValue.settings!.audioVoice
+        : base.settings.audioVoice,
     },
     words: normalizedWords,
     levels: {

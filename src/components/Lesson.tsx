@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { speakGreek } from '../lib/audio';
 import { t } from '../lib/i18n';
 import type { AudioMode, LessonAnswer, LessonQuestion, LessonSession, Mp3Voice, NativeLanguage } from '../types';
@@ -18,6 +19,8 @@ type LessonProps = {
   onSubmitChoice: (choice: string) => void;
   onRevealAnswer: () => void;
   onMarkKnown: () => void;
+  hasReportedIssue: boolean;
+  onReportIssue: () => void;
 };
 
 function BackIcon() {
@@ -28,6 +31,44 @@ function BackIcon() {
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ReportIcon({ sent }: { sent: boolean }) {
+  if (sent) {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.reportIcon}>
+        <path
+          d="M6.5 12.5 10 16l7.5-8"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.reportIcon}>
+      <path
+        d="M12 6.75v5.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <circle cx="12" cy="16.6" r="1.1" fill="currentColor" />
+      <path
+        d="M10.4 3.8 3.9 15.1a1.6 1.6 0 0 0 1.38 2.4h13.44a1.6 1.6 0 0 0 1.38-2.4L13.6 3.8a1.84 1.84 0 0 0-3.2 0Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -48,9 +89,18 @@ function Lesson({
   onSubmitChoice,
   onRevealAnswer,
   onMarkKnown,
+  hasReportedIssue,
+  onReportIssue,
 }: LessonProps) {
   const showAudioButton = question.promptLanguage === 'el';
   const selectedChoice = currentResponse?.selectedAnswer ?? null;
+  const reportIssueLabel = uiLanguage === 'ru' ? '\u0421\u043e\u043e\u0431\u0449\u0438\u0442\u044c \u043e \u043f\u0440\u043e\u0431\u043b\u0435\u043c\u0435' : 'Report issue';
+  const reportedIssueLabel = uiLanguage === 'ru' ? '\u041e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u043e' : 'Reported';
+  const [isReportSent, setIsReportSent] = useState(hasReportedIssue);
+
+  useEffect(() => {
+    setIsReportSent(hasReportedIssue);
+  }, [hasReportedIssue, question.answerLanguage, question.promptLanguage, question.wordId]);
 
   return (
     <section className={`${ui.panel} ${styles.lessonPanel} ${styles.lessonScreen}`}>
@@ -75,18 +125,33 @@ function Lesson({
           <span className={question.isReview ? `${styles.badge} ${styles.reviewBadge}` : `${styles.badge} ${styles.freshBadge}`}>
             {question.isReview ? t(uiLanguage, 'reviewHint') : t(uiLanguage, 'newHint')}
           </span>
-          {showAudioButton && (
+          <div className={styles.promptCardControls}>
             <button
               type="button"
-              className={styles.audioButton}
-              aria-label={t(uiLanguage, 'audio')}
+              className={isReportSent ? `${styles.reportButton} ${styles.reportButtonSent}` : styles.reportButton}
+              aria-label={isReportSent ? reportedIssueLabel : reportIssueLabel}
+              title={isReportSent ? reportedIssueLabel : reportIssueLabel}
               onClick={() => {
-                void speakGreek({ wordId: question.wordId, text: question.prompt }, audioMode, audioVoice);
+                onReportIssue();
+                setIsReportSent(true);
               }}
+              disabled={isReportSent}
             >
-              <SpeakerIcon className={styles.speakerIcon} />
+              <ReportIcon sent={isReportSent} />
             </button>
-          )}
+            {showAudioButton && (
+              <button
+                type="button"
+                className={styles.audioButton}
+                aria-label={t(uiLanguage, 'audio')}
+                onClick={() => {
+                  void speakGreek({ wordId: question.wordId, text: question.prompt }, audioMode, audioVoice);
+                }}
+              >
+                <SpeakerIcon className={styles.speakerIcon} />
+              </button>
+            )}
+          </div>
         </div>
         <div className={styles.promptText}>{question.prompt}</div>
       </div>

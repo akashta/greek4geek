@@ -77,6 +77,7 @@ function Settings({ uiLanguage, settings, hasRussianTranslations, onUpdateSettin
           >
             <option value="aoede">{t(uiLanguage, 'audioVoiceAoede')}</option>
             <option value="charon">{t(uiLanguage, 'audioVoiceCharon')}</option>
+            <option value="standard-b">{t(uiLanguage, 'audioVoiceStandardB')}</option>
           </select>
         </label>
 
