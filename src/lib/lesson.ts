@@ -8,10 +8,11 @@ import type {
   UserProgress,
   Word,
 } from '../types';
-import { getWeakWordIds, isWordLearned } from './progress';
+import { getWeakWordIds } from './progress';
 import { getWordLabel } from './words';
 
 const LESSON_WORD_COUNT = 10;
+const RECENT_WORD_COOLDOWN_MS = 1000 * 60 * 60;
 
 function shuffle<T>(items: T[]): T[] {
   const next = [...items];
@@ -27,26 +28,40 @@ function startsWithUppercase(text: string): boolean {
   return firstCharacter.length > 0 && firstCharacter === firstCharacter.toLocaleUpperCase();
 }
 
-function sortWordsForLesson(words: Word[], progress: UserProgress, level: Level): Word[] {
-  return [...words].sort((left, right) => {
+function getWordScore(wordProgress: UserProgress['words'][string] | undefined): number {
+  return (wordProgress?.correct ?? 0) - (wordProgress?.wrong ?? 0);
+}
+
+function getLastSeenAt(wordProgress: UserProgress['words'][string] | undefined): number {
+  return wordProgress?.lastSeenAt ?? 0;
+}
+
+function isOnCooldown(wordProgress: UserProgress['words'][string] | undefined, now: number): boolean {
+  if (!wordProgress?.lastSeenAt) {
+    return false;
+  }
+
+  return now - wordProgress.lastSeenAt < RECENT_WORD_COOLDOWN_MS;
+}
+
+function sortWordsForLesson(words: Word[], progress: UserProgress): Word[] {
+  return shuffle(words).sort((left, right) => {
     const leftProgress = progress.words[left.id];
     const rightProgress = progress.words[right.id];
+    const leftLastSeenAt = getLastSeenAt(leftProgress);
+    const rightLastSeenAt = getLastSeenAt(rightProgress);
 
-    const leftLearned = isWordLearned(leftProgress) ? 1 : 0;
-    const rightLearned = isWordLearned(rightProgress) ? 1 : 0;
-    if (leftLearned !== rightLearned) {
-      return leftLearned - rightLearned;
+    if (leftLastSeenAt !== rightLastSeenAt) {
+      return leftLastSeenAt - rightLastSeenAt;
     }
 
-    const leftSeen = leftProgress ? 1 : 0;
-    const rightSeen = rightProgress ? 1 : 0;
-    if (leftSeen !== rightSeen) {
-      return leftSeen - rightSeen;
+    const leftScore = getWordScore(leftProgress);
+    const rightScore = getWordScore(rightProgress);
+    if (leftScore !== rightScore) {
+      return leftScore - rightScore;
     }
 
-    const leftScore = (leftProgress?.correct ?? 0) - (leftProgress?.wrong ?? 0);
-    const rightScore = (rightProgress?.correct ?? 0) - (rightProgress?.wrong ?? 0);
-    return leftScore - rightScore;
+    return (leftProgress?.streak ?? 0) - (rightProgress?.streak ?? 0);
   });
 }
 
@@ -100,17 +115,22 @@ function createQuestion(
   };
 }
 
-function pickLessonWords(words: Word[], progress: UserProgress, level: Level): Word[] {
-  const orderedWords = sortWordsForLesson(words, progress, level);
+function pickLessonWords(words: Word[], progress: UserProgress): Word[] {
+  const orderedWords = sortWordsForLesson(words, progress);
   const weakWordIds = new Set(getWeakWordIds(progress.words, words));
+  const now = Date.now();
   const unseenWords = orderedWords.filter((word) => !progress.words[word.id]);
   const weakWords = orderedWords.filter((word) => weakWordIds.has(word.id));
   const seenWords = orderedWords.filter((word) => progress.words[word.id] && !weakWordIds.has(word.id));
+  const readyWeakWords = weakWords.filter((word) => !isOnCooldown(progress.words[word.id], now));
+  const readySeenWords = seenWords.filter((word) => !isOnCooldown(progress.words[word.id], now));
+  const cooldownWeakWords = weakWords.filter((word) => isOnCooldown(progress.words[word.id], now));
+  const cooldownSeenWords = seenWords.filter((word) => isOnCooldown(progress.words[word.id], now));
   const targetWordCount = Math.min(LESSON_WORD_COUNT, orderedWords.length);
 
   const uniqueTargets: Word[] = [];
   const addWords = (candidates: Word[], limit: number) => {
-    for (const word of shuffle(candidates)) {
+    for (const word of candidates) {
       if (uniqueTargets.length >= limit) {
         break;
       }
@@ -120,11 +140,13 @@ function pickLessonWords(words: Word[], progress: UserProgress, level: Level): W
     }
   };
 
+  // Keep newly seen words out of the next lesson whenever the group has enough older material.
   addWords(unseenWords, Math.min(6, targetWordCount));
-  addWords(weakWords, Math.min(9, targetWordCount));
+  addWords(readyWeakWords, Math.min(9, targetWordCount));
   addWords(unseenWords, targetWordCount);
-  addWords(weakWords, targetWordCount);
-  addWords(seenWords, targetWordCount);
+  addWords(readySeenWords, targetWordCount);
+  addWords(cooldownWeakWords, targetWordCount);
+  addWords(cooldownSeenWords, targetWordCount);
 
   return uniqueTargets.slice(0, targetWordCount);
 }
@@ -154,7 +176,7 @@ export function buildLessonSession(
   groupId: LessonGroupId,
 ): LessonSession {
   const weakWordIds = new Set(getWeakWordIds(progress.words, words));
-  const lessonWords = pickLessonWords(words, progress, level);
+  const lessonWords = pickLessonWords(words, progress);
   const questions = buildQuestionsForWords(lessonWords, words, nativeLanguage, weakWordIds);
 
   return {
